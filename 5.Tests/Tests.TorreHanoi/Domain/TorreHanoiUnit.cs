@@ -30,12 +30,12 @@ namespace Tests.TorreHanoi.Domain
             Assert.AreNotEqual(_torreHanoi.Id, Guid.Empty);
             Assert.AreEqual(_torreHanoi.Status, TipoStatus.Pendente);
             Assert.AreEqual(_torreHanoi.Discos.Count, 3);
-            Assert.IsTrue(DateTime.Now > _torreHanoi.DataCriacao);
+            Assert.IsTrue(_torreHanoi.DataCriacao > DateTime.MinValue);
         }
 
         [TestMethod]
         [TestCategory(CategoriaTeste)]
-        public void Processar_Deverar_Retornar_Sucesso()
+        public void Processar_ComQuatroDiscosDevePossuirQuinzePassos()
         {
             _torreHanoi = new global::Domain.TorreHanoi.TorreHanoi(4, _mockLogger.Object);
 

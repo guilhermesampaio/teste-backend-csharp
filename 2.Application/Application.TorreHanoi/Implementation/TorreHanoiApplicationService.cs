@@ -11,7 +11,7 @@ namespace Application.TorreHanoi.Implementation
 {
     public class TorreHanoiApplicationService : ITorreHanoiApplicationService
     {
-        private readonly TorreHanoiAdapter _adpterTorreHanoi;
+        private readonly TorreHanoiAdapter _adapterTorreHanoi;
         private readonly ITorreHanoiDomainService _domainService;
         private readonly ILogger _log;
         private readonly IDesignerService _designerService;
@@ -19,7 +19,7 @@ namespace Application.TorreHanoi.Implementation
         public TorreHanoiApplicationService(ITorreHanoiDomainService domainService, ILogger log, IDesignerService designerService)
         {
             _domainService = domainService;
-            _adpterTorreHanoi = new TorreHanoiAdapter();
+            _adapterTorreHanoi = new TorreHanoiAdapter();
             _log = log;
             _designerService = designerService;
         }
@@ -59,7 +59,7 @@ namespace Application.TorreHanoi.Implementation
 
             try
             {
-                response.Processo = _adpterTorreHanoi.DomainParaApplicationDto(_domainService.ObterPor(new Guid(id)));
+                response.Processo = _adapterTorreHanoi.DomainParaApplicationDto(_domainService.ObterPor(new Guid(id)));
             }
             catch (Exception ex)
             {
@@ -81,7 +81,7 @@ namespace Application.TorreHanoi.Implementation
             }
             try
             {
-                response.Processos = _adpterTorreHanoi.DomainParaApplicationDto(_domainService.ObterTodos());
+                response.Processos = _adapterTorreHanoi.DomainParaApplicationDto(_domainService.ObterTodos());
             }
             catch (Exception ex)
             {
@@ -96,16 +96,16 @@ namespace Application.TorreHanoi.Implementation
         public ObterImagemProcessoPorResponse ObterImagemProcessoPor(string id)
         {
             var response = id.ValidationImagem();
-
+            
             if (!response.IsValid)
             {
                 return response;
             }
             try
             {
-                var torre = _domainService.ObterPor(new Guid());
+                var torre = _domainService.ObterPor(new Guid(id));
 
-                _designerService.Inicializar(_adpterTorreHanoi.DomainParaDesignerDto(torre));
+                _designerService.Inicializar(_adapterTorreHanoi.DomainParaDesignerDto(torre));
 
                 response.Imagem = _designerService.Desenhar();
             }
