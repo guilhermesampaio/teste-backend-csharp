@@ -42,7 +42,7 @@ namespace Tests.TorreHanoi.Domain
 
         [TestMethod]
         [TestCategory(CategoriaTeste)]
-        public void ObterPor_Deverar_Retornar_Sucesso()
+        public void ObterPor_Deve_Retornar_Sucesso()
         {
             var response = _service.ObterPor(Guid.NewGuid());
 
@@ -54,7 +54,7 @@ namespace Tests.TorreHanoi.Domain
 
         [TestMethod]
         [TestCategory(CategoriaTeste)]
-        public void ObterTodos_Deverar_Retornar_Sucesso()
+        public void ObterTodos_Deve_Retornar_Sucesso()
         {
             var response = _service.ObterTodos();
 

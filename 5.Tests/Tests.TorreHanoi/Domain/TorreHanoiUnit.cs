@@ -35,14 +35,17 @@ namespace Tests.TorreHanoi.Domain
 
         [TestMethod]
         [TestCategory(CategoriaTeste)]
+        
         public void Processar_ComQuatroDiscosDevePossuirQuinzePassos()
         {
-            _torreHanoi = new global::Domain.TorreHanoi.TorreHanoi(4, _mockLogger.Object);
+            var quantidadeDiscos = 4;
+            
+            _torreHanoi = new global::Domain.TorreHanoi.TorreHanoi(quantidadeDiscos, _mockLogger.Object);
 
             _torreHanoi.Processar();
 
             Assert.AreEqual(_torreHanoi.PassoAPasso.Count, 15);
-            Assert.AreEqual(_torreHanoi.Destino.Discos.Count, 4);
+            Assert.AreEqual(_torreHanoi.Destino.Discos.Count, quantidadeDiscos);
         }
     }
 }

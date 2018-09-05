@@ -63,7 +63,10 @@ namespace Infrastructure.TorreHanoi.Queue
         {
             var processosPendentes = FilaProcessamento.ToList().Where(t => t.Status == TipoStatus.Pendente).Take(_limiteProcessamento).ToList();
 
-            Task.WaitAll(processosPendentes.TakeWhile(processoPendente => FilaProcessamento.Count(t => t.Status == TipoStatus.Processando) < _limiteProcessamento).Select(processoPendente => Task.Factory.StartNew(processoPendente.Processar)).ToArray());
+            Task.WaitAll(processosPendentes
+                .TakeWhile(processoPendente => FilaProcessamento.Count(t => t.Status == TipoStatus.Processando) < _limiteProcessamento)
+                .Select(processoPendente => Task.Factory.StartNew(processoPendente.Processar))
+                .ToArray());
         }
     }
 }

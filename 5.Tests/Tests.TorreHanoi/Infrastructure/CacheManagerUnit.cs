@@ -29,7 +29,7 @@ namespace Tests.TorreHanoi.Infrastructure
 
         [TestMethod]
         [TestCategory(CategoriaTeste)]
-        public void GetCache_Deverar_Retornar_Sucesso()
+        public void GetCache_Deve_Retornar_Sucesso()
         {
             _cacheManager.DataSource = "Teste";
             _cacheManager.Set("TesteUnitarioKey");

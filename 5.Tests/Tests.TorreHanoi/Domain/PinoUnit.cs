@@ -40,7 +40,7 @@ namespace Tests.TorreHanoi.Domain
 
         [TestMethod]
         [TestCategory(CategoriaTeste)]
-        public void RemoverDisco_Deverar_Retornar_Sucesso()
+        public void RemoverDisco_Deve_Retornar_Sucesso()
         {
             var torre = new global::Domain.TorreHanoi.TorreHanoi(3, _mockLogger.Object);
 
@@ -55,7 +55,7 @@ namespace Tests.TorreHanoi.Domain
 
         [TestMethod]
         [TestCategory(CategoriaTeste)]
-        public void AdicionarDisco_Deverar_Retornar_Sucesso()
+        public void AdicionarDisco_Deve_Retornar_Sucesso()
         {
             var torre = new global::Domain.TorreHanoi.TorreHanoi(3, _mockLogger.Object);
 
@@ -71,7 +71,7 @@ namespace Tests.TorreHanoi.Domain
         [TestMethod]
         [TestCategory(CategoriaTeste)]
         [ExpectedException(typeof(Exception), "Não é possivel adicionar um disco maior em cima de um menor")]
-        public void AdicionarDisco_Deverar_Retornar_Erro()
+        public void AdicionarDisco_Deve_Retornar_Erro()
         {
             var torre = new global::Domain.TorreHanoi.TorreHanoi(3, _mockLogger.Object);
 

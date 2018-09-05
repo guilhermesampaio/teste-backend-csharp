@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Tests.TorreHanoi.Infrastructure
 {
-    [TestClass]
+    [TestClass]    
     public class QueueUnit
     {
         private const string CategoriaTeste = "Infrastructure/Repository/Queue";
@@ -75,6 +75,8 @@ namespace Tests.TorreHanoi.Infrastructure
             var fila = new Queue<global::Domain.TorreHanoi.TorreHanoi>();
 
             fila.Enqueue(_torre);
+
+            
 
             return fila;
         }
